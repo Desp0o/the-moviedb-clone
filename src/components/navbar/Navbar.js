@@ -1,10 +1,16 @@
 import React from 'react'
 import "./navbar.css"
-import Navlink from '../navLink/Navlink'
 import { Link } from 'react-router-dom'
 import mainLogo from "../../utils/images/mainLogo.webp"
+import findIcon from "../../utils/images/findIcon.webp"
+import userIcon from "../../utils/images/userIcon.webp"
+import logoResp from "../../utils/images/logoResponsive.webp"
+import menuBars from "../../utils/images/menuBars.webp"
+import close from "../../utils/images/close.webp"
+import NavLinks from './navLinks'
 
 export default function Navbar() {
+
   return (
    <>
     <div className='navbar'>
@@ -12,19 +18,30 @@ export default function Navbar() {
             
             <div className='navLeft'>
                 <Link to='/'>
-                    <img className='logo' src={mainLogo} alt='moviedb' />
+                    <img className='logo' src={window.innerWidth > 768 ? mainLogo : logoResp} alt='moviedb' />
                 </Link>
 
                 <div className='nav-links'>
-                    <Navlink linkName='Movies' />
-                    <Navlink linkName='TvShows' />
-                    <Navlink linkName='People' />
-                    <Navlink linkName='More' />
+                    <NavLinks linkName='Movies'/>
+                    <NavLinks linkName='TV Shows'/>
+                    <NavLinks linkName='People'/>
                 </div>
+
+                <img src={menuBars} className='menuTrigger' alt='menu trigger' />
+               
             </div>
 
             <div className='navRigth'>
+                
+                {
+                    window.innerWidth > 768 
+                        ? 
+                        <Link to='/'>Login</Link> 
+                        : 
+                        <Link to='/'> <img src={userIcon} alt='user' className='userResIcon'/> </Link>      
+                }
 
+                <img src={findIcon} alt='find' className='finIcon'/>
             </div>
 
         </div>

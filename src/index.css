@@ -11,6 +11,7 @@
 :root{
   --dark-blue: #062542;
   --white:#ffff;
+  --link-hover: #F8F9FA;
 }
 
 body {
@@ -30,7 +31,8 @@ code {
 }
 
 a{
-  color: inherit;
-  width: fit-content;
-  height: fit-content;
+  color: inherit !important;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0;
 }
